@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 var path = require('path');
 const app = express();
 const PORT = 3000;
+const categoryRoutes = require('./routes/categories');;
 
 app.set('view engine', 'ejs');
 
@@ -15,6 +16,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Include routes from different modules
 app.use('/', require('./routes/index'));
 app.use('/tags', require('./routes/tags'));
+app.use('/categories', categoryRoutes);
+app.use(express.json());
 
 app.listen(PORT, () => {
   console.log(`App is running on http://localhost:${PORT}`);
