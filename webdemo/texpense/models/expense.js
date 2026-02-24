@@ -35,18 +35,31 @@ class ExpenseModel {
  * @return {array} expense - array of positive number
  */
 
-  getAll() {
+/**
+ * Get all expense records.
+ * @returns {Array} list of expenses
+ */
+  getAll() { 
     return this.expenses;
   }
-
+/**
+ * Calculate total income.
+ * @returns {number} total income
+ */
   getTotalIncome() {
     return this.expenses.reduce((sum, exp) => sum + exp.income, 0);
   }
-
+/**
+ * Calculate total expense.
+ * @returns {number} total expense
+ */
   getTotalExpense() {
     return this.expenses.reduce((sum, exp) => sum + exp.expense, 0);
   }
-
+/**
+ * Calculate remaining money.
+ * @returns {number} remaining balance
+ */
   getMoneyLeft() {
     return this.getTotalIncome() - this.getTotalExpense();
   }
